@@ -61,3 +61,22 @@ extension DarkSky.Daily {
         
     }
 }
+
+extension DarkSky.Daily.Data {
+    
+    public var dateString: String {
+        let date = Date(timeIntervalSince1970: Double(time))
+        DarkSky.dateFormatter.dateFormat = "EEEE, MMM d"
+        DarkSky.dateFormatter.calendar = Calendar.current
+        DarkSky.dateFormatter.timeZone = .current
+        return DarkSky.dateFormatter.string(from: date)
+    }
+    
+    public var celsiusCurrentTemp: Double {
+        return WeatherCore.calculateCelsius(fahrenheit: temperatureMax)
+    }
+    
+    public var celsiusCurrentTempString: String {
+        return String(Int(celsiusCurrentTemp)) + "º C"
+    }
+}

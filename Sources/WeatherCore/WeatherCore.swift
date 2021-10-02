@@ -1,15 +1,21 @@
 import Foundation
 
-public struct WeatherCore {
+struct WeatherCore {
     
-    public private(set) var text = "Hello, WeatherCore!"
+    private(set) var text = "Hello, WeatherCore!"
 
-    public init() {}
+    init() {}
+    
+    static func calculateCelsius(fahrenheit: Double) -> Double {
+        var celsius: Double
+        celsius = (fahrenheit - 32) * 5 / 9
+        return celsius
+    }
 }
 
-public let DarkSky_Key = ""
+public var DarkSky_Key = ""
 
-public let WeatherAPI_Key = ""
+public var WeatherAPI_Key = ""
 
 public enum WeatherError : Error {
     case any(String?)

@@ -31,3 +31,19 @@ extension DarkSky {
         
     }
 }
+
+extension DarkSky.Currently {
+    
+    public var dateString: String {
+        let date = Date(timeIntervalSince1970: Double(time))
+        return String(describing: date)
+    }
+    
+    public var celsiusCurrentTemp: Double {
+        return WeatherCore.calculateCelsius(fahrenheit: temperature)
+    }
+    
+    public var celsiusCurrentTempString: String {
+        return String(Int(celsiusCurrentTemp)) + "º C"
+    }
+}
