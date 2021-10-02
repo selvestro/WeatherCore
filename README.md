@@ -1,0 +1,3 @@
+# WeatherCore
+
+Weather APIs.
